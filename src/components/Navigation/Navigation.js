@@ -4,7 +4,7 @@ import s from './Navigation.module.css';
 
 const StyledLink = styled(NavLink)`
   color: black;
-
+  padding-left: 20px;
   &.active {
     color: orange;
   }

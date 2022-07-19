@@ -1,6 +1,6 @@
-export default function Movies() {
+export default function Movies({ submitForm }) {
   return (
-    <form>
+    <form onSubmit={submitForm}>
       <input type="text" autoFocus />
       <button type="submit">Search</button>
     </form>
