@@ -1,18 +1,70 @@
-import { useEffect, } from 'react';
-import { useParams } from 'react-router-dom';
-import { FetchById } from "components/Fetch's/Fetch's";
-
+import { useEffect, useState } from 'react';
+import { Link, Outlet, useParams } from 'react-router-dom';
+import { FetchById, FetchCast } from "components/Fetch's/Fetch's";
+import s from './MoviesDetailsView.module.css';
 
 export default function MoviesDetailsView() {
-    const { movieId } = useParams();
-    // const {movie, setMovie} = useState(null)
+  const { movieId } = useParams();
+  const [movie, setMovie] = useState('');
 
+  const BASE_IMG_URL = 'https://image.tmdb.org/t/p/';
 
+  useEffect(() => {
+    function movieGenres(array) {
+      return array
+        .map(genre => {
+          return genre.name;
+        })
+        .join(' ');
+    }
+    FetchById(movieId).then(response => {
+      const genres = movieGenres(response.genres);
+console.log(response)
+      setMovie({ ...response, genres });
+    });
+      FetchCast(movieId)
+    // FetchById(movieId).then(response => setMovie(response));
+  }, [movieId]);
 
-    useEffect(() => {
-      FetchById(movieId).then(r=>(console.log(r)))
+  if (!movie) {
+    return;
+  }
+  return (
+    <div className={s.wrapper}>
+      <button className={s.btn} type="button">
+        &#9754; return
+      </button>
+      <div className={s.container}>
+        <img
+          src={`${BASE_IMG_URL}w342/${movie?.poster_path}`}
+          alt={movie.title}
+        />
+        <div className={s.descr}>
+          <h2>
+            {movie.title} ({movie.release_date.slice(0, 4)})
+          </h2>
+          <p>{movie.tagline}</p>
+          <h4>User score: {movie.vote_average}</h4>
 
-      
-    }, [movieId]);
+          <h4>Overview</h4>
+          <p>{movie.overview}</p>
 
+          <h4>Genres</h4>
+          <p>{movie.genres}</p>
+        </div>
+      </div>
+      <div className={s.outlet}>
+        <ul>
+          <li>
+            <Link to="mission">Cast</Link>
+          </li>
+          <li>
+            <Link to="team">Reviews</Link>
+          </li>
+          
+        </ul>
+        <Outlet />
+      </div>
+    </div>
+  );
 }

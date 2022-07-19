@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 10px;
+}
+.wrapper {
+    border-bottom: 1px solid #000;
+  padding: 20px;
+}
+.btn {
+  margin-bottom: 20px;
+  color: white;
+  background-color: rgb(99, 136, 240);
+  border: none;
+  border-radius: 8px;
+  width: 75px;
+  height: 25px;
+  cursor: pointer;
+}
+.btn:hover,
+.btn:focus {
+  transform: scale(1.1);
+  background-color: rgb(38, 38, 245);
+}
+.descr {
+    margin-left: 10px;
+}
+/* .outlet {} */

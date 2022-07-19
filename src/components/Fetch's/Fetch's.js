@@ -8,17 +8,21 @@ export async function FetchTopList() {
 }
 
 export async function FetchByName(name) {
-  const list = await fetch(`
+  const response = await fetch(`
     https://api.themoviedb.org/3/search/movie?api_key=${KEY}&query=${name}`);
-  const request = await list.json();
-  return request.results;
+  const parsed = await response.json();
+  return parsed;
 }
 export async function FetchById(id) {
   const response = await fetch(`
-    https://api.themoviedb.org/3/movie/507086?api_key=${KEY}`);
-  // console.log(list)
+    https://api.themoviedb.org/3/movie/${id}?api_key=${KEY}`);
   const parsed = await response.json();
-  // console.log(parsed);
-
+  return parsed;
+}
+export async function FetchCast(id) {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${KEY}`
+  );
+  const parsed = await response.json();
   return parsed;
 }
