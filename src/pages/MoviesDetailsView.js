@@ -6,7 +6,7 @@ import s from './MoviesDetailsView.module.css';
 export default function MoviesDetailsView() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState('');
-  const [cast, setCast] = useState('');
+  const [/*cast,*/ setCast] = useState('');
 
   const BASE_IMG_URL = 'https://image.tmdb.org/t/p/';
 
@@ -30,7 +30,7 @@ export default function MoviesDetailsView() {
       setCast(response.cast);
     });
     // FetchById(movieId).then(response => setMovie(response));
-  }, [movieId]);
+  }, [movieId, setCast]);
 
   if (!movie) {
     return;
