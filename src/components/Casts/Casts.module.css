@@ -1,16 +1,16 @@
 .list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 15px;
-    padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 15px;
+  padding: 0;
 }
 .item {
-    border: 1px solid black;
-    list-style: none;
-    width: 150px;
-    text-align: center;
+  border: 1px solid black;
+  list-style: none;
+  width: 150px;
+  text-align: center;
 }
 .img {
-    width: 100%;
+  width: 100%;
 }

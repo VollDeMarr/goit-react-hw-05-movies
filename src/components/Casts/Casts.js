@@ -8,12 +8,10 @@ const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w342/';
 export default function Casts() {
   const [state, setState] = useState(null);
   const { movieId } = useParams();
-  //   console.log(movieId);
 
   useEffect(() => {
     FetchCast(movieId).then(response => {
       setState(response.cast);
-      //   console.log(response.cast);
     });
   }, [movieId]);
 

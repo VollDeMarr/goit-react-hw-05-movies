@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link, Outlet, useParams } from 'react-router-dom';
-import { FetchById, FetchCast } from "components/Fetch's/Fetch's";
+import { FetchById } from "components/Fetch's/Fetch's";
 import s from './MoviesDetailsView.module.css';
 
 export default function MoviesDetailsView() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState('');
-  //   const [cast, setCast] = useState('');
 
   const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w342/';
 
@@ -24,12 +23,6 @@ export default function MoviesDetailsView() {
       console.log(response);
       setMovie({ ...response, genres });
     });
-
-    FetchCast(movieId).then(response => {
-      //   console.log(response.cast);
-      //   setCast(response.cast);
-    });
-    // FetchById(movieId).then(response => setMovie(response));
   }, [movieId]);
 
   if (!movie) {

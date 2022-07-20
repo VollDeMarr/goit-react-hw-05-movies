@@ -8,6 +8,9 @@ export default function Movies() {
   const [state, setState] = useState('');
   useEffect(() => {
     const query = searchParams.get('query');
+    if (!query) {
+      return;
+    }
     console.log(query);
     FetchByName(query).then(response => {
       console.log(response);

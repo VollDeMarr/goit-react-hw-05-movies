@@ -22,7 +22,6 @@ export default function Reviews() {
   });
   return (
     <div className={s.container}>
-      {/* <h1>Тут щось буде</h1> */}
       <ul className={s.list}>{elements}</ul>
     </div>
   );

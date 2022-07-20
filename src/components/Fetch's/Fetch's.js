@@ -33,4 +33,3 @@ export async function FetchReviews(id) {
   const parsed = await response.json();
   return parsed;
 }
-// https://api.themoviedb.org/3/review/{review_id}?api_key=<<api_key>>
