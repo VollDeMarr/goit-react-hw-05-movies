@@ -6,6 +6,7 @@ import s from './MoviesDetailsView.module.css';
 export default function MoviesDetailsView() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState('');
+  const [cast, setCast] = useState('');
 
   const BASE_IMG_URL = 'https://image.tmdb.org/t/p/';
 
@@ -17,12 +18,17 @@ export default function MoviesDetailsView() {
         })
         .join(' ');
     }
+
     FetchById(movieId).then(response => {
       const genres = movieGenres(response.genres);
-console.log(response)
+      console.log(response);
       setMovie({ ...response, genres });
     });
-      FetchCast(movieId)
+
+    FetchCast(movieId).then(response => {
+      console.log(response.cast);
+      setCast(response.cast);
+    });
     // FetchById(movieId).then(response => setMovie(response));
   }, [movieId]);
 
@@ -61,7 +67,6 @@ console.log(response)
           <li>
             <Link to="team">Reviews</Link>
           </li>
-          
         </ul>
         <Outlet />
       </div>
