@@ -5,14 +5,14 @@ import FilmList from '../components/FilmList/FilmList';
 import Search from 'components/Search/Search';
 export default function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
-const [state, setState] = useState('')
+  const [state, setState] = useState('');
   useEffect(() => {
     const query = searchParams.get('query');
     console.log(query);
     FetchByName(query).then(response => {
-      console.log(response)
+      console.log(response);
       setState(response.results);
-    })
+    });
   }, [searchParams]);
 
   return (

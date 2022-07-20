@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-import FilmList from '../components/FilmList/FilmList'
+import FilmList from '../components/FilmList/FilmList';
 import { FetchTopList } from "../components/Fetch's/Fetch's";
 export default function HomePage() {
   const [state, setState] = useState([]);
   useEffect(() => {
     FetchTopList().then(response => setState(response));
   });
-
 
   // const elements = state.map(ell => {
   //   return (

@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 export default function FilmList({ state }) {
-    if (!state) {
-        return
-    }
+  if (!state) {
+    return;
+  }
   const elements = state.map(ell => {
     return (
       <li key={ell.id}>

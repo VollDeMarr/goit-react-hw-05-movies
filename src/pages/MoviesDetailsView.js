@@ -6,7 +6,7 @@ import s from './MoviesDetailsView.module.css';
 export default function MoviesDetailsView() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState('');
-//   const [cast, setCast] = useState('');
+  //   const [cast, setCast] = useState('');
 
   const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w342/';
 
@@ -26,8 +26,8 @@ export default function MoviesDetailsView() {
     });
 
     FetchCast(movieId).then(response => {
-    //   console.log(response.cast);
-    //   setCast(response.cast);
+      //   console.log(response.cast);
+      //   setCast(response.cast);
     });
     // FetchById(movieId).then(response => setMovie(response));
   }, [movieId]);
@@ -43,10 +43,7 @@ export default function MoviesDetailsView() {
         </button>
 
         <div className={s.container}>
-          <img
-            src={`${BASE_IMG_URL}${movie?.poster_path}`}
-            alt={movie.title}
-          />
+          <img src={`${BASE_IMG_URL}${movie?.poster_path}`} alt={movie.title} />
           <div className={s.descr}>
             <h2>
               {movie.title} ({movie.release_date.slice(0, 4)})

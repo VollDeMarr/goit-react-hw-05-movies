@@ -7,10 +7,9 @@ export default function Search({ setSearchParams }) {
   };
 
   const submitForm = e => {
-      e.preventDefault();
-       const queryString = state.trim().split(' ').join('+');
-      setSearchParams({ query: queryString });
- 
+    e.preventDefault();
+    const queryString = state.trim().split(' ').join('+');
+    setSearchParams({ query: queryString });
   };
   return (
     <form onSubmit={submitForm}>
