@@ -26,3 +26,11 @@ export async function FetchCast(id) {
   const parsed = await response.json();
   return parsed;
 }
+export async function FetchReviews(id) {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${KEY}`
+  );
+  const parsed = await response.json();
+  return parsed;
+}
+// https://api.themoviedb.org/3/review/{review_id}?api_key=<<api_key>>

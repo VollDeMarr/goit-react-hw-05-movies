@@ -1,0 +1,9 @@
+.list {
+    padding: 0;
+}
+.item {
+    border: 1px solid black;
+    list-style: none;
+    padding: 10px;
+    margin: 10px;
+}
