@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link,  } from 'react-router-dom';
+import FilmList from '../components/FilmList/FilmList'
 import { FetchTopList } from "../components/Fetch's/Fetch's";
 export default function HomePage() {
   const [state, setState] = useState([]);
@@ -8,17 +8,18 @@ export default function HomePage() {
   });
 
 
-  const elements = state.map(ell => {
-    return (
-      <li key={ell.id}>
-        <Link to={`/movies/${ell.id}`}>{ell.title} </Link>
-      </li>
-    );
-  });
+  // const elements = state.map(ell => {
+  //   return (
+  //     <li key={ell.id}>
+  //       <Link to={`/movies/${ell.id}`}>{ell.title} </Link>
+  //     </li>
+  //   );
+  // });
   return (
     <div>
       <h1>Trending today</h1>
-      <ul>{elements}</ul>
+      {<FilmList state={state} />}
+      {/* <ul>{elements}</ul> */}
     </div>
   );
 }
