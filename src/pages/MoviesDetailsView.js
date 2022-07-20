@@ -1,14 +1,25 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import {
+  Link,
+  Outlet,
+  useParams,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import { FetchById } from "components/Fetch's/Fetch's";
 import s from './MoviesDetailsView.module.css';
 
 export default function MoviesDetailsView() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate();
+  // console.log(location);
 
+  const from = location.state?.from || '/movies';
   const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w342/';
 
+  const goBack = () => navigate(from);
   useEffect(() => {
     function movieGenres(array) {
       return array
@@ -20,7 +31,6 @@ export default function MoviesDetailsView() {
 
     FetchById(movieId).then(response => {
       const genres = movieGenres(response.genres);
-      console.log(response);
       setMovie({ ...response, genres });
     });
   }, [movieId]);
@@ -31,7 +41,7 @@ export default function MoviesDetailsView() {
   return (
     <>
       <div className={s.wrapper}>
-        <button className={s.btn} type="button">
+        <button className={s.btn} type="button" onClick={goBack}>
           &#9754; return
         </button>
 
@@ -55,10 +65,14 @@ export default function MoviesDetailsView() {
       <div className={s.outlet}>
         <ul className={s.list}>
           <li>
-            <Link to="casts">Cast</Link>
+            <Link to="casts" state={{ from }}>
+              Cast
+            </Link>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <Link to="reviews" state={{ from }}>
+              Reviews
+            </Link>
           </li>
         </ul>
         <Outlet />
