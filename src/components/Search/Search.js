@@ -13,7 +13,7 @@ export default function Search({ setSearchParams }) {
   };
   return (
     <form onSubmit={submitForm}>
-      <input onChange={changeInput} type="text" autoFocus />
+      <input onChange={changeInput} type="text" autoFocus/>
       <button type="submit">Search</button>
     </form>
   );
