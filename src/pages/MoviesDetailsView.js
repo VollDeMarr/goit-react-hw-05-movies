@@ -14,7 +14,6 @@ export default function MoviesDetailsView() {
   const [movie, setMovie] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
 
   const from = location.state?.from || '/movies';
   const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w342/';
