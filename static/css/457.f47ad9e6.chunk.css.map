@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/457.f47ad9e6.chunk.css","mappings":"AAAA,qBACE,SACF,CACA,qBACE,qBAAuB,CACvB,eAAgB,CAEhB,WAAY,CADZ,YAEF","sources":["components/Reviews/Reviews.module.css"],"sourcesContent":[".list {\n  padding: 0;\n}\n.item {\n  border: 1px solid black;\n  list-style: none;\n  padding: 10px;\n  margin: 10px;\n}\n"],"names":[],"sourceRoot":""}
